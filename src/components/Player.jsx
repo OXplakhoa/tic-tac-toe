@@ -1,10 +1,13 @@
 import { useState } from "react";
 
-export default function Player({ name, symbol, isActive }) {
+export default function Player({ name, symbol, isActive, onChangeName }) {
   const [newName, setNewName] = useState(name);
   const [editMode, setEditMode] = useState(false);
   const toggleEdit = () => {
     setEditMode((currEditMode) => !currEditMode);
+    if (editMode){
+        onChangeName(symbol,newName);
+    }
   };
   const handleChange = (e) => {
     setNewName(e.target.value);
