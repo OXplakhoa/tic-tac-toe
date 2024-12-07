@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Player({ name, symbol }) {
+export default function Player({ name, symbol, isActive }) {
   const [newName, setNewName] = useState(name);
   const [editMode, setEditMode] = useState(false);
   const toggleEdit = () => {
@@ -10,7 +10,7 @@ export default function Player({ name, symbol }) {
     setNewName(e.target.value);
   };
   return (
-    <li>
+    <li className={isActive && 'active'}>
       <span className="player">
         {editMode ? (
             <input type="text" required value={newName} onChange={handleChange} />
