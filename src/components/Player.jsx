@@ -15,7 +15,7 @@ export default function Player({ name, symbol }) {
         {editMode ? (
             <input type="text" required value={newName} onChange={handleChange} />
         ) : (
-            <span className="player-name">{name}</span>
+            <span className="player-name">{newName}</span>
         )}
         <span className="player-symbol">{symbol}</span>
       </span>
